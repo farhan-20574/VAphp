@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serarch kisy karna hai</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 25px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 65%;
+            margin: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>How to search</h2>
+    <input type="text" id="search" placeholder="serach the student">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll no</th>
+            </tr>
+        <tbody id="studentstable">
+            <tr>
+                <td>Ali</td>
+                <td>001</td>
+            </tr>
+            <tr>
+                <td>Zara</td>
+                <td>002</td>
+            </tr>
+            <tr>
+                <td>mira</td>
+                <td>003</td>
+            </tr>
+            <tr>
+                <td>Mara</td>
+                <td>004</td>
+            </tr>
+            <tr>
+                <td>kara</td>
+                <td>005</td>
+            </tr>
+
+        </tbody>
+        </thead>
+    </table>
+    <script>
+
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                var value = $(this).val().toLowerCase(); // Corrected the selector
+
+                $("#studentstable tr").filter(function () { // Target the rows (tr)
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+
+
+
+        // })
+    </script>
+
+</body>
+
+</html>
