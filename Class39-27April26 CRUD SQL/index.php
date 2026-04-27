@@ -8,22 +8,31 @@
 <body>
 <h2>Student FORM</h2>
     
-<form action="" method="post">
+<form action="" method="POST">
     
-   Name:<input type="text" name="name"><br><br>
+   Name:<input type="text" name="sName"><br><br>
    Email:<input type="text" name="email"><br><br>
-   Password:<input type="text" name="pasword"><br><br>
-   :<input type="submit" value="create" name="submit">
+   Password:<input type="text" name="password"><br><br>
+   <input type="submit" value="create" name="submit">
 </form>
 <?php
- include "db.php"
-if($_POST['submit']){
-    
+ include "db.php";
+if(isset($_POST['submit'])){
+$sName = $_POST['sName'];
+$email = $_POST['sName'];
+$password = $_POST['sName'];
+
+//echo ("db Success!");
+
+$query = "INSERT INTO student(name,email,password) VALUES ('$sName','$email','$password')";
+if(mysqli_query($conn,$query)){
+    echo("data insert successfully!");
 }
-// if($_POST){
-//     $name =$_POST['name'];
-//     echo "Hello".$name;
-// }
+else{
+    
+        echo("error");
+}
+}
 ?>
 </body>
 </html>
