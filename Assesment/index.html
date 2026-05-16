@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical | Section B</title>
+</head>
+<body>
+    <h1>Greetings App</h1>
+    <!-- We create an element where the greeting will be displayed -->
+    <h2 id="display"></h2>
+    <p id="time"></p>
+
+    <script>
+        const currentTime = new Date();
+        const hours = currentTime.getHours();
+        const displayElement = document.getElementById("display");
+        const timeElement = document.getElementById("time");
+
+        if (hours < 12) {
+            displayElement.innerText = "Good Morning";
+        } else {
+            displayElement.innerText = "Good Afternoon";
+        }
+
+        // Update the time element with the current system time
+        timeElement.innerText = "Current Time: " + currentTime.toLocaleTimeString();
+    </script>
+</body>
+</html>
